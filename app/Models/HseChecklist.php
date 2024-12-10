@@ -10,7 +10,7 @@ class HseChecklist extends Model
     use HasFactory;
 
     protected $table = 'hse_checklists';
-    protected $fillable = ['reported_by', 'date', 'inst_dept', 'condition_status', 'ppe', 'ppe_notes', 'working_position', 'working_position_notes', 'ergonomic', 'ergonomic_notes', 'tools', 'tools_notes', 'procedures', 'procedures_notes', 'environment', 'environment_notes'];
+    protected $fillable = ['reported_by', 'date', 'inst_dept', 'condition_status', 'ppe', 'ppe_notes', 'working_position', 'working_position_notes', 'ergonomic', 'ergonomic_notes', 'tools', 'tools_notes', 'procedures', 'procedures_notes', 'environment', 'environment_notes', 'feedback', 'reason'];
 
     // Dekode JSON ketika mengambil data dari database
     protected $casts = [

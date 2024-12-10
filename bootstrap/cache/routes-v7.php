@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::NM9VhkCYIISa00gS',
+            '_route' => 'generated::GeKwYDl250o1iZHw',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::TpqiSE0RWSK7Jkmu',
+            '_route' => 'generated::OiIFhSaoviOsbdKZ',
           ),
           1 => NULL,
           2 => 
@@ -159,7 +159,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::goiV6JORz1Cqel8M',
+            '_route' => 'generated::0U7rLaLRQ81IPTDd',
           ),
           1 => NULL,
           2 => 
@@ -214,7 +214,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xRrlyC0pCtsVflEr',
+            '_route' => 'generated::mRrlBLtGyVoNOqKz',
           ),
           1 => NULL,
           2 => 
@@ -305,7 +305,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::gOZ1QFDlicaO5BbZ',
+            '_route' => 'generated::jbxNkgNhHPTepFGb',
           ),
           1 => NULL,
           2 => 
@@ -397,7 +397,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/password/reset/([^/]++)(*:31)|/hse_report/(?|([^/]++)(?|(*:64)|/edit(*:76)|(*:83))|export(*:97)))/?$}sDu',
+      0 => '{^(?|/password/reset/([^/]++)(*:31)|/hse_report/(?|([^/]++)(?|(*:64)|/edit(*:76)|(*:83))|([0-9]+)/approve(*:107)|([0-9]+)/reject(*:130)))/?$}sDu',
     ),
     3 => 
     array (
@@ -512,21 +512,43 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      97 => 
+      107 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'hse_report.export',
+            '_route' => 'hse_report.approve',
           ),
           1 => 
           array (
+            0 => 'id',
           ),
           2 => 
           array (
-            'GET' => 0,
-            'HEAD' => 1,
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      130 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'hse_report.reject',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -695,7 +717,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::NM9VhkCYIISa00gS' => 
+    'generated::GeKwYDl250o1iZHw' => 
     array (
       'methods' => 
       array (
@@ -712,13 +734,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000003670000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005230000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::NM9VhkCYIISa00gS',
+        'as' => 'generated::GeKwYDl250o1iZHw',
       ),
       'fallback' => false,
       'defaults' => 
@@ -734,7 +756,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::TpqiSE0RWSK7Jkmu' => 
+    'generated::OiIFhSaoviOsbdKZ' => 
     array (
       'methods' => 
       array (
@@ -750,13 +772,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () {
     return \\view(\'auth.login\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000003690000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005250000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::TpqiSE0RWSK7Jkmu',
+        'as' => 'generated::OiIFhSaoviOsbdKZ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -809,7 +831,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::goiV6JORz1Cqel8M' => 
+    'generated::0U7rLaLRQ81IPTDd' => 
     array (
       'methods' => 
       array (
@@ -829,7 +851,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::goiV6JORz1Cqel8M',
+        'as' => 'generated::0U7rLaLRQ81IPTDd',
       ),
       'fallback' => false,
       'defaults' => 
@@ -918,7 +940,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xRrlyC0pCtsVflEr' => 
+    'generated::mRrlBLtGyVoNOqKz' => 
     array (
       'methods' => 
       array (
@@ -938,7 +960,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xRrlyC0pCtsVflEr',
+        'as' => 'generated::mRrlBLtGyVoNOqKz',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1137,7 +1159,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::gOZ1QFDlicaO5BbZ' => 
+    'generated::jbxNkgNhHPTepFGb' => 
     array (
       'methods' => 
       array (
@@ -1157,7 +1179,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::gOZ1QFDlicaO5BbZ',
+        'as' => 'generated::jbxNkgNhHPTepFGb',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1186,6 +1208,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'uses' => 'App\\Http\\Controllers\\HomeController@index',
         'controller' => 'App\\Http\\Controllers\\HomeController@index',
@@ -1223,6 +1246,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'as' => 'hse_report.index',
         'uses' => 'App\\Http\\Controllers\\HseChecklistController@index',
@@ -1260,6 +1284,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'as' => 'hse_report.create',
         'uses' => 'App\\Http\\Controllers\\HseChecklistController@create',
@@ -1296,6 +1321,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'as' => 'hse_report.store',
         'uses' => 'App\\Http\\Controllers\\HseChecklistController@store',
@@ -1333,6 +1359,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'as' => 'hse_report.show',
         'uses' => 'App\\Http\\Controllers\\HseChecklistController@show',
@@ -1370,6 +1397,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'as' => 'hse_report.edit',
         'uses' => 'App\\Http\\Controllers\\HseChecklistController@edit',
@@ -1407,6 +1435,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'as' => 'hse_report.update',
         'uses' => 'App\\Http\\Controllers\\HseChecklistController@update',
@@ -1443,6 +1472,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'as' => 'hse_report.destroy',
         'uses' => 'App\\Http\\Controllers\\HseChecklistController@destroy',
@@ -1467,28 +1497,28 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'hse_report.export' => 
+    'hse_report.approve' => 
     array (
       'methods' => 
       array (
-        0 => 'GET',
-        1 => 'HEAD',
+        0 => 'POST',
       ),
-      'uri' => 'hse_report/export',
+      'uri' => 'hse_report/{id}/approve',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\HseChecklistController@exportToPDF',
-        'controller' => 'App\\Http\\Controllers\\HseChecklistController@exportToPDF',
+        'uses' => 'App\\Http\\Controllers\\HseChecklistController@update',
+        'controller' => 'App\\Http\\Controllers\\HseChecklistController@update',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'hse_report.export',
+        'as' => 'hse_report.approve',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1496,6 +1526,45 @@ app('router')->setCompiledRoutes(
       ),
       'wheres' => 
       array (
+        'id' => '[0-9]+',
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'hse_report.reject' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'hse_report/{id}/reject',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HseChecklistController@update',
+        'controller' => 'App\\Http\\Controllers\\HseChecklistController@update',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'hse_report.reject',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+        'id' => '[0-9]+',
       ),
       'bindingFields' => 
       array (
