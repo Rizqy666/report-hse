@@ -22,7 +22,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('hse_report', HseChecklistController::class);
-// Route::get('/hse_report/{id}', [HseChecklistController::class, 'show'])->name('hse_report.show');
-Route::get('hse_report/export', [HseChecklistController::class, 'exportToPDF'])->name('hse_report.export');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // Resource route untuk HSE Report
+    Route::resource('hse_report', HseChecklistController::class);
+
+    // Custom routes untuk approve dan reject
+    Route::post('hse_report/{id}/approve', [HseChecklistController::class, 'approve'])->name('hse_report.approve');
+
+    Route::post('hse_report/{id}/reject', [HseChecklistController::class, 'reject'])->name('hse_report.reject');
+
+    // Route::get('hse_report/export', [HseChecklistController::class, 'exportToPDF'])->name('hse_report.export');
+    // Route::get('/hse_report/{id}', [HseChecklistController::class, 'show'])->name('hse_report.show');
+    // Route::post('hse_report/{id}/{action}', [HseChecklistController::class, 'update'])->name('hse_report.update');
+});

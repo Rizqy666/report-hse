@@ -34,6 +34,7 @@
             /* Memastikan teks berada di tengah */
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush
 @section('content')
     <div class="container">
@@ -42,19 +43,30 @@
                 <div class="card">
                     <div class="card-header">{{ __('FORMULIR PEDULI HSE') }}</div>
                     @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: '{{ session('success') }}',
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
                     @endif
+
                     @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                        <script>
+                            let errorMessages = @json($errors->toArray());
+                            let formattedErrors = Object.values(errorMessages).flat().join('\n');
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Validation Errors',
+                                text: formattedErrors,
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
                     @endif
+
 
                     <form method="POST" action="{{ route('hse_report.store') }}">
                         @csrf
@@ -105,11 +117,11 @@
                                     </tr>
                                     <tr>
                                         <td style="width: 33%">DATE :<input type="date" name="date" id="date"
-                                                class="form-control"></td>
+                                                class="form-control" value="{{ old('date') }}"></td>
                                         <td style="width: 33%">Reported By :<input type="text" name="reported_by"
-                                                id="reported_by" class="form-control"></td>
+                                                id="reported_by" class="form-control" value="{{ old('reported_by') }}"></td>
                                         <td style="width: 33%">Inst / Dept :<input type="text" name="inst_dept"
-                                                id="inst_dept" class="form-control"></td>
+                                                id="inst_dept" class="form-control"value="{{ old('inst_dept') }}"></td>
                                     </tr>
                                     <tr class="text-center">
                                         <th>CATEGORY "A"<br>Alat Pelindung Diri / PPE</th>

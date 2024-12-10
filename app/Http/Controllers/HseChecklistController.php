@@ -31,7 +31,7 @@ class HseChecklistController extends Controller
             'reported_by' => 'required|string',
             'date' => 'required|date',
             'inst_dept' => 'required|string',
-            'condition_status' => 'nullable|string',
+            'condition_status' => 'required|string',
 
             'ppe' => 'nullable|array',
             'ppe_notes' => 'nullable|array',
@@ -83,10 +83,61 @@ class HseChecklistController extends Controller
 
     public function show($id)
     {
-        // Ambil satu data berdasarkan id
         $report = HseChecklist::findOrFail($id);
 
-        // Kirim data ke view
-        return view('report.show', compact('report')); // Kirim data dengan nama 'report'
+        $action = 'approve';
+
+        return view('report.show', compact('report', 'action'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'reason' => 'required|string|max:500',
+        ]);
+
+        $report = HseChecklist::findOrFail($id);
+
+        // Tentukan aksi (approve/reject) berdasarkan data
+        $action = $request->route()->getName() === 'hse_report.approve' ? 'approve' : 'reject';
+
+        // Update feedback dan alasan
+        $report->update([
+            'feedback' => $action,
+            'reason' => $validated['reason'],
+        ]);
+
+        return redirect()
+            ->route('hse_report.show', $id)
+            ->with('success', ucfirst($action) . ' berhasil diproses!');
+    }
+
+    public function approve(Request $request, $id)
+    {
+        return $this->processAction($request, $id, 'approve');
+    }
+
+    public function reject(Request $request, $id)
+    {
+        return $this->processAction($request, $id, 'reject');
+    }
+
+    private function processAction(Request $request, $id, $action)
+    {
+        $validated = $request->validate([
+            'reason' => 'required|string|max:500',
+        ]);
+
+        $report = HseChecklist::findOrFail($id);
+
+        // Update feedback dan alasan
+        $report->update([
+            'feedback' => $action,
+            'reason' => $validated['reason'],
+        ]);
+
+        return redirect()
+            ->route('hse_report.show', $id)
+            ->with('success', ucfirst($action) . ' berhasil diproses!');
     }
 }

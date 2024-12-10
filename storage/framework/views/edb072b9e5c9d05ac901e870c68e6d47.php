@@ -33,6 +33,7 @@
             /* Memastikan teks berada di tengah */
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
     <div class="container">
@@ -41,20 +42,30 @@
                 <div class="card">
                     <div class="card-header"><?php echo e(__('FORMULIR PEDULI HSE')); ?></div>
                     <?php if(session('success')): ?>
-                        <div class="alert alert-success">
-                            <?php echo e(session('success')); ?>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: '<?php echo e(session('success')); ?>',
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
+                    <?php endif; ?>
 
-                        </div>
-                    <?php endif; ?>
                     <?php if($errors->any()): ?>
-                        <div class="alert alert-danger">
-                            <ul>
-                                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><?php echo e($error); ?></li>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </ul>
-                        </div>
+                        <script>
+                            let errorMessages = <?php echo json_encode($errors->toArray(), 15, 512) ?>;
+                            let formattedErrors = Object.values(errorMessages).flat().join('\n');
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Validation Errors',
+                                text: formattedErrors,
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
                     <?php endif; ?>
+
 
                     <form method="POST" action="<?php echo e(route('hse_report.store')); ?>">
                         <?php echo csrf_field(); ?>
@@ -105,11 +116,11 @@
                                     </tr>
                                     <tr>
                                         <td style="width: 33%">DATE :<input type="date" name="date" id="date"
-                                                class="form-control"></td>
+                                                class="form-control" value="<?php echo e(old('date')); ?>"></td>
                                         <td style="width: 33%">Reported By :<input type="text" name="reported_by"
-                                                id="reported_by" class="form-control"></td>
+                                                id="reported_by" class="form-control" value="<?php echo e(old('reported_by')); ?>"></td>
                                         <td style="width: 33%">Inst / Dept :<input type="text" name="inst_dept"
-                                                id="inst_dept" class="form-control"></td>
+                                                id="inst_dept" class="form-control"value="<?php echo e(old('inst_dept')); ?>"></td>
                                     </tr>
                                     <tr class="text-center">
                                         <th>CATEGORY "A"<br>Alat Pelindung Diri / PPE</th>
