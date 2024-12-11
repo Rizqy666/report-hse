@@ -31,7 +31,8 @@
                                     <th>Reporty By</th>
                                     <th>Tanggal</th>
                                     <th>Inst</th>
-                                    <th>Status</th>
+                                    <th>Status Kodindisi</th>
+                                    <th>Status Feedback</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -57,7 +58,15 @@
                                                 <span class="badge bg-success">Safe Condition</span>
                                             @endif
                                         </td>
-
+                                        <td>
+                                            @if ($item->feedback === 'reject')
+                                                <span class="badge bg-danger">Reject</span>
+                                            @elseif ($item->feedback === 'approve')
+                                                <span class="badge bg-success">Approve</span>
+                                            @else
+                                                <span class="badge bg-secondary">Not Accept</span>
+                                            @endif
+                                        </td>
 
 
                                         <td>
@@ -78,7 +87,8 @@
                                     <th>Reporty By</th>
                                     <th>Tanggal</th>
                                     <th>Inst</th>
-                                    <th>Status</th>
+                                    <th>Status Kodindisi</th>
+                                    <th>Status Feedback</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>

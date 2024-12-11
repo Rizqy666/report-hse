@@ -118,7 +118,8 @@
                                         <td style="width: 33%">DATE :<input type="date" name="date" id="date"
                                                 class="form-control" value="<?php echo e(old('date')); ?>"></td>
                                         <td style="width: 33%">Reported By :<input type="text" name="reported_by"
-                                                id="reported_by" class="form-control" value="<?php echo e(old('reported_by')); ?>"></td>
+                                                id="reported_by" class="form-control" value="<?php echo e(auth()->user()->name); ?>"
+                                                ></td>
                                         <td style="width: 33%">Inst / Dept :<input type="text" name="inst_dept"
                                                 id="inst_dept" class="form-control"value="<?php echo e(old('inst_dept')); ?>"></td>
                                     </tr>
@@ -129,107 +130,132 @@
                                     </tr>
                                     
                                     <tr>
+                                        <!-- Kolom 1 -->
                                         <td>
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <label class="form-label mb-0" for="faceEyes">Mata & Wajah <br>Face &
-                                                        Eyes</label>
+                                            <div class="d-grid gap-3">
+                                                <!-- Input utama -->
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <label class="form-label mb-0" for="faceEyes">
+                                                        Mata & Wajah <br>Face & Eyes
+                                                    </label>
                                                     <input type="checkbox" class="form-check-input ms-auto" id="faceEyes"
-                                                        name="ppe[face_eyes]" onchange="toggleNote('faceEyes')">
+                                                        name="ppe[face_eyes]"
+                                                        onchange="document.getElementById('note-faceEyes').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-faceEyes" class="note-input" style="display: none;">
-                                                    <label for="note-faceEyes" class="form-label">Note:</label>
+                                                <!-- Note -->
+                                                <div>
                                                     <input type="text" class="form-control" name="ppe_notes[face_eyes]"
-                                                        placeholder="Enter keterangan untuk Mata & Wajah">
+                                                        id="note-faceEyes" placeholder="Enter keterangan untuk Mata & Wajah"
+                                                        disabled>
                                                 </div>
                                             </div>
                                         </td>
+
+                                        <!-- Kolom 2 -->
                                         <td>
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <label class="form-label mb-0" for="strikingAgainst">Berbenturan
-                                                        <br>Striking Against</label>
+                                            <div class="d-grid gap-3">
+                                                <!-- Input utama -->
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <label class="form-label mb-0" for="strikingAgainst">
+                                                        Berbenturan <br>Striking Against
+                                                    </label>
                                                     <input type="checkbox" class="form-check-input ms-auto"
                                                         id="strikingAgainst" name="working_position[striking_against]"
-                                                        onchange="toggleNote('strikingAgainst')">
+                                                        onchange="document.getElementById('note-strikingAgainst').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-strikingAgainst" class="note-input" style="display: none;">
-                                                    <label for="note-strikingAgainst" class="form-label">Note:</label>
+                                                <!-- Note -->
+                                                <div>
                                                     <input type="text" class="form-control"
                                                         name="working_position_notes[striking_against]"
-                                                        placeholder="Enter keterangan untuk Berbenturan">
+                                                        id="note-strikingAgainst"
+                                                        placeholder="Enter keterangan untuk Berbenturan" disabled>
                                                 </div>
                                             </div>
                                         </td>
+
+                                        <!-- Kolom 3 -->
                                         <td>
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <label class="form-label mb-0" for="posture">Sikap Tubuh
-                                                        <br>Posture</label>
-                                                    <input type="checkbox" class="form-check-input ms-auto"
-                                                        id="posture" name="ergonomic[posture]"
-                                                        onchange="toggleNote('posture')">
+                                            <div class="d-grid gap-3">
+                                                <!-- Input utama -->
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <label class="form-label mb-0" for="posture">
+                                                        Sikap Tubuh <br>Posture
+                                                    </label>
+                                                    <input type="checkbox" class="form-check-input ms-auto" id="posture"
+                                                        name="ergonomic[posture]"
+                                                        onchange="document.getElementById('note-posture').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-posture" class="note-input" style="display: none;">
-                                                    <label for="note-posture" class="form-label">Note:</label>
+                                                <!-- Note -->
+                                                <div>
                                                     <input type="text" class="form-control"
-                                                        name="ergonomic_notes[posture]"
-                                                        placeholder="Enter keterangan untuk Sikap Tubuh">
+                                                        name="ergonomic_notes[posture]" id="note-posture"
+                                                        placeholder="Enter keterangan untuk Sikap Tubuh" disabled>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
 
+
+
                                     <tr>
                                         <td>
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="d-grid gap-3">
+                                                <!-- Input utama -->
+                                                <div class="d-flex justify-content-between align-items-center">
                                                     <label class="form-label mb-0" for="ears">Telinga <br>Ears</label>
                                                     <input type="checkbox" class="form-check-input ms-auto"
-                                                        id="ears" name="ppe[ears]" onchange="toggleNote('ears')">
+                                                        id="ears" name="ppe[ears]"
+                                                        onchange="document.getElementById('note-ears').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-ears" class="note-input" style="display: none;">
-                                                    <label for="note-ears" class="form-label">Keterangan:</label>
+                                                <!-- Note -->
+                                                <div>
                                                     <input type="text" class="form-control" name="ppe_notes[ears]"
-                                                        placeholder="Enter keterangan untuk Telinga">
+                                                        id="note-ears" placeholder="Enter keterangan untuk Telinga"
+                                                        disabled>
                                                 </div>
                                             </div>
                                         </td>
+
                                         <td>
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="d-grid gap-3">
+                                                <!-- Input utama -->
+                                                <div class="d-flex justify-content-between align-items-center">
                                                     <label class="form-label mb-0" for="struckBy">Terbentur Oleh
                                                         <br>Struck By</label>
                                                     <input type="checkbox" class="form-check-input ms-auto"
                                                         id="struckBy" name="working_position[struck_by]"
-                                                        onchange="toggleNote('struckBy')">
+                                                        onchange="document.getElementById('note-struckBy').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-struckBy" class="note-input" style="display: none;">
-                                                    <label for="note-struckBy" class="form-label">Keterangan:</label>
+                                                <!-- Note -->
+                                                <div>
                                                     <input type="text" class="form-control"
-                                                        name="working_position_notes[struck_by]"
-                                                        placeholder="Enter keterangan untuk Terbentur Oleh">
+                                                        name="working_position_notes[struck_by]" id="note-struckBy"
+                                                        placeholder="Enter keterangan untuk Terbentur Oleh" disabled>
                                                 </div>
                                             </div>
                                         </td>
+
                                         <td>
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="d-grid gap-3">
+                                                <!-- Input utama -->
+                                                <div class="d-flex justify-content-between align-items-center">
                                                     <label class="form-label mb-0" for="motionType">Jenis & Jumlah Gerakan
                                                         <br>Number & Type of Motion</label>
                                                     <input type="checkbox" class="form-check-input ms-auto"
                                                         id="motionType" name="ergonomic[motion_type]"
-                                                        onchange="toggleNote('motionType')">
+                                                        onchange="document.getElementById('note-motionType').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-motionType" class="note-input" style="display: none;">
-                                                    <label for="note-motionType" class="form-label">Keterangan:</label>
+                                                <!-- Note -->
+                                                <div>
                                                     <input type="text" class="form-control"
-                                                        name="ergonomic_notes[motion_type]"
-                                                        placeholder="Enter keterangan untuk Jenis & Jumlah Gerakan">
+                                                        name="ergonomic_notes[motion_type]" id="note-motionType"
+                                                        placeholder="Enter keterangan untuk Jenis & Jumlah Gerakan"
+                                                        disabled>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+
 
 
                                     
@@ -239,98 +265,99 @@
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="head">Kepala <br>Head</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="head"
-                                                    name="ppe[head]" onchange="toggleNote('head')">
+                                                    name="ppe[head]"
+                                                    onchange="document.getElementById('note-head').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-head" class="note-input" style="display: none;">
-                                                <label for="note-head" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="ppe_notes[head]"
-                                                    placeholder="Enter keterangan untuk Kepala">
+                                                    id="note-head" placeholder="Enter keterangan untuk Kepala" disabled>
                                             </div>
                                         </td>
 
                                         <!-- Terjepit Diantara -->
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <label class="form-label mb-0" for="caughtBetween">Terjepit
-                                                    Diantara<br>Caught Between</label>
+                                                <label class="form-label mb-0" for="caughtBetween">Terjepit Diantara
+                                                    <br>Caught Between</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="caughtBetween" name="working_position[caught_between]"
-                                                    onchange="toggleNote('caughtBetween')">
+                                                    onchange="document.getElementById('note-caughtBetween').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-caughtBetween" class="note-input" style="display: none;">
-                                                <label for="note-caughtBetween" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="working_position_notes[caught_between]"
-                                                    placeholder="Enter keterangan untuk Terjepit Diantara">
+                                                    name="working_position_notes[caught_between]" id="note-caughtBetween"
+                                                    placeholder="Enter keterangan untuk Terjepit Diantara" disabled>
                                             </div>
                                         </td>
 
                                         <!-- Beban yang Ditangani -->
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <label class="form-label mb-0" for="loadHandled">Beban yang
-                                                    Ditangani<br>Load Handled</label>
+                                                <label class="form-label mb-0" for="loadHandled">Beban yang Ditangani
+                                                    <br>Load Handled</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="loadHandled"
-                                                    name="ergonomic[load_handled]" onchange="toggleNote('loadHandled')">
+                                                    name="ergonomic[load_handled]"
+                                                    onchange="document.getElementById('note-loadHandled').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-loadHandled" class="note-input" style="display: none;">
-                                                <label for="note-loadHandled" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="ergonomic_notes[load_handled]"
-                                                    placeholder="Enter keterangan untuk Beban yang Ditangani">
+                                                    name="ergonomic_notes[load_handled]" id="note-loadHandled"
+                                                    placeholder="Enter keterangan untuk Beban yang Ditangani" disabled>
                                             </div>
                                         </td>
                                     </tr>
 
-                                    
+                                    <!-- Baris keempat -->
                                     <tr>
                                         <!-- Tangan & Lengan -->
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <label class="form-label mb-0" for="armsHands">Tangan & Lengan<br>Arms &
+                                                <label class="form-label mb-0" for="armsHands">Tangan & Lengan <br>Arms &
                                                     Hands</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="armsHands"
-                                                    name="ppe[arms_hands]" onchange="toggleNote('armsHands')">
+                                                    name="ppe[arms_hands]"
+                                                    onchange="document.getElementById('note-armsHands').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-armsHands" class="note-input" style="display: none;">
-                                                <label for="note-armsHands" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="ppe_notes[arms_hands]"
-                                                    placeholder="Enter keterangan untuk Tangan & Lengan">
+                                                    id="note-armsHands"
+                                                    placeholder="Enter keterangan untuk Tangan & Lengan" disabled>
                                             </div>
                                         </td>
 
                                         <!-- Jatuh -->
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <label class="form-label mb-0" for="falling">Jatuh<br>Falling</label>
+                                                <label class="form-label mb-0" for="falling">Jatuh <br>Falling</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="falling"
-                                                    name="working_position[falling]" onchange="toggleNote('falling')">
+                                                    name="working_position[falling]"
+                                                    onchange="document.getElementById('note-falling').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-falling" class="note-input" style="display: none;">
-                                                <label for="note-falling" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="working_position_notes[falling]"
-                                                    placeholder="Enter keterangan untuk Jatuh">
+                                                    name="working_position_notes[falling]" id="note-falling"
+                                                    placeholder="Enter keterangan untuk Jatuh" disabled>
                                             </div>
                                         </td>
 
                                         <!-- Design Lokasi Kerja -->
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <label class="form-label mb-0" for="workingAreaDesign">Design Lokasi
-                                                    Kerja<br>Working Area Design</label>
+                                                <label class="form-label mb-0" for="workingAreaDesign">Design Lokasi Kerja
+                                                    <br>Working Area Design</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="workingAreaDesign" name="ergonomic[working_area_design]"
-                                                    onchange="toggleNote('workingAreaDesign')">
+                                                    onchange="document.getElementById('note-workingAreaDesign').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-workingAreaDesign" class="note-input" style="display: none;">
-                                                <label for="note-workingAreaDesign" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="ergonomic_notes[working_area_design]"
-                                                    placeholder="Enter keterangan untuk Design Lokasi Kerja">
+                                                    id="note-workingAreaDesign"
+                                                    placeholder="Enter keterangan untuk Design Lokasi Kerja" disabled>
                                             </div>
                                         </td>
                                     </tr>
+
 
                                     
                                     <tr>
@@ -340,12 +367,13 @@
                                                 <label class="form-label mb-0" for="feetLegs">Kaki & Telapak Kaki<br>Feet
                                                     & Legs</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="feetLegs"
-                                                    name="ppe[feet_legs]" onchange="toggleNote('feetLegs')">
+                                                    name="ppe[feet_legs]"
+                                                    onchange="document.getElementById('note-feetLegs').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-feetLegs" class="note-input" style="display: none;">
-                                                <label for="note-feetLegs" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="ppe_notes[feet_legs]"
-                                                    placeholder="Enter keterangan untuk Kaki & Telapak Kaki">
+                                                    id="note-feetLegs"
+                                                    placeholder="Enter keterangan untuk Kaki & Telapak Kaki" disabled>
                                             </div>
                                         </td>
 
@@ -356,14 +384,14 @@
                                                     Berlebihan<br>Extremes Temperature</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="extremeTemperature" name="ergonomic[extreme_temperature]"
-                                                    onchange="toggleNote('extremeTemperature')">
+                                                    onchange="document.getElementById('note-extremeTemperature').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-extremeTemperature" class="note-input" style="display: none;">
-                                                <label for="note-extremeTemperature"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="ergonomic_notes[extreme_temperature]"
-                                                    placeholder="Enter keterangan untuk Temperatur yang Berlebihan">
+                                                    id="note-extremeTemperature"
+                                                    placeholder="Enter keterangan untuk Temperatur yang Berlebihan"
+                                                    disabled>
                                             </div>
                                         </td>
 
@@ -373,12 +401,14 @@
                                                 <label class="form-label mb-0" for="toolsGrip">Peralatan dan Cara
                                                     Penggunaan<br>Tools & Grip</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="toolsGrip"
-                                                    name="tools[tools_grip]" onchange="toggleNote('toolsGrip')">
+                                                    name="tools[tools_grip]"
+                                                    onchange="document.getElementById('note-toolsGrip').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-toolsGrip" class="note-input" style="display: none;">
-                                                <label for="note-toolsGrip" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="tools_notes[tools_grip]"
-                                                    placeholder="Enter keterangan untuk Peralatan dan Cara Penggunaan">
+                                                    id="note-toolsGrip"
+                                                    placeholder="Enter keterangan untuk Peralatan dan Cara Penggunaan"
+                                                    disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -392,13 +422,12 @@
                                                     Pernapasan<br>Respiratory System</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="respiratorySystem" name="ppe[respiratory_system]"
-                                                    onchange="toggleNote('respiratorySystem')">
+                                                    onchange="document.getElementById('note-respiratorySystem').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-respiratorySystem" class="note-input" style="display: none;">
-                                                <label for="note-respiratorySystem" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="ppe_notes[respiratory_system]"
-                                                    placeholder="Enter keterangan untuk Sistem Pernapasan">
+                                                    name="ppe_notes[respiratory_system]" id="note-respiratorySystem"
+                                                    placeholder="Enter keterangan untuk Sistem Pernapasan" disabled>
                                             </div>
                                         </td>
 
@@ -409,13 +438,12 @@
                                                     Listrik<br>Electrical Current</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="electricalCurrent" name="ergonomic[electrical_current]"
-                                                    onchange="toggleNote('electricalCurrent')">
+                                                    onchange="document.getElementById('note-electricalCurrent').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-electricalCurrent" class="note-input" style="display: none;">
-                                                <label for="note-electricalCurrent" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="ergonomic_notes[electrical_current]"
-                                                    placeholder="Enter keterangan untuk Arus Listrik">
+                                                    name="ergonomic_notes[electrical_current]" id="note-electricalCurrent"
+                                                    placeholder="Enter keterangan untuk Arus Listrik" disabled>
                                             </div>
                                         </td>
 
@@ -426,16 +454,16 @@
                                                     Ventilation</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="airVentilation" name="environment[air_ventilation]"
-                                                    onchange="toggleNote('airVentilation')">
+                                                    onchange="document.getElementById('note-airVentilation').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-airVentilation" class="note-input" style="display: none;">
-                                                <label for="note-airVentilation" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="environment_notes[air_ventilation]"
-                                                    placeholder="Enter keterangan untuk Sirkulasi Udara">
+                                                    name="environment_notes[air_ventilation]" id="note-airVentilation"
+                                                    placeholder="Enter keterangan untuk Sirkulasi Udara" disabled>
                                             </div>
                                         </td>
                                     </tr>
+
 
                                     
                                     <tr>
@@ -444,12 +472,12 @@
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="trunk">Dada<br>Trunk</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="trunk"
-                                                    name="ppe[trunk]" onchange="toggleNote('trunk')">
+                                                    name="ppe[trunk]"
+                                                    onchange="document.getElementById('note-trunk').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-trunk" class="note-input" style="display: none;">
-                                                <label for="note-trunk" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="ppe_notes[trunk]"
-                                                    placeholder="Enter keterangan untuk Dada">
+                                                    id="note-trunk" placeholder="Enter keterangan untuk Dada" disabled>
                                             </div>
                                         </td>
 
@@ -459,13 +487,13 @@
                                                 <label class="form-label mb-0" for="inhaling">Terhisap Oleh
                                                     Pernapasan<br>Inhaling</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="inhaling"
-                                                    name="ergonomic[inhaling]" onchange="toggleNote('inhaling')">
+                                                    name="ergonomic[inhaling]"
+                                                    onchange="document.getElementById('note-inhaling').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-inhaling" class="note-input" style="display: none;">
-                                                <label for="note-inhaling" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="ergonomic_notes[inhaling]"
-                                                    placeholder="Enter keterangan untuk Inhaling">
+                                                    name="ergonomic_notes[inhaling]" id="note-inhaling"
+                                                    placeholder="Enter keterangan untuk Inhaling" disabled>
                                             </div>
                                         </td>
 
@@ -475,13 +503,13 @@
                                                 <label class="form-label mb-0"
                                                     for="vibration">Getaran<br>Vibration</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="vibration"
-                                                    name="ergonomic[vibration]" onchange="toggleNote('vibration')">
+                                                    name="ergonomic[vibration]"
+                                                    onchange="document.getElementById('note-vibration').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-vibration" class="note-input" style="display: none;">
-                                                <label for="note-vibration" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="ergonomic_notes[vibration]"
-                                                    placeholder="Enter keterangan untuk Vibration">
+                                                    name="ergonomic_notes[vibration]" id="note-vibration"
+                                                    placeholder="Enter keterangan untuk Vibration" disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -493,12 +521,12 @@
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="body">Badan<br>Body</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="body"
-                                                    name="ppe[body]" onchange="toggleNote('body')">
+                                                    name="ppe[body]"
+                                                    onchange="document.getElementById('note-body').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-body" class="note-input" style="display: none;">
-                                                <label for="note-body" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="ppe_notes[body]"
-                                                    placeholder="Enter keterangan untuk Badan">
+                                                    id="note-body" placeholder="Enter keterangan untuk Badan" disabled>
                                             </div>
                                         </td>
 
@@ -508,13 +536,13 @@
                                                 <label class="form-label mb-0" for="absorbing">Terserap Oleh
                                                     Kulit<br>Absorbing</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="absorbing"
-                                                    name="ergonomic[absorbing]" onchange="toggleNote('absorbing')">
+                                                    name="ergonomic[absorbing]"
+                                                    onchange="document.getElementById('note-absorbing').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-absorbing" class="note-input" style="display: none;">
-                                                <label for="note-absorbing" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="ergonomic_notes[absorbing]"
-                                                    placeholder="Enter keterangan untuk Absorbing">
+                                                    name="ergonomic_notes[absorbing]" id="note-absorbing"
+                                                    placeholder="Enter keterangan untuk Absorbing" disabled>
                                             </div>
                                         </td>
 
@@ -525,14 +553,13 @@
                                                     Temperature</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="workAreaTemperature" name="ergonomic[work_area_temperature]"
-                                                    onchange="toggleNote('workAreaTemperature')">
+                                                    onchange="document.getElementById('note-workAreaTemperature').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-workAreaTemperature" class="note-input" style="display: none;">
-                                                <label for="note-workAreaTemperature"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="ergonomic_notes[work_area_temperature]"
-                                                    placeholder="Enter keterangan untuk Work Area Temperature">
+                                                    id="note-workAreaTemperature"
+                                                    placeholder="Enter keterangan untuk Work Area Temperature" disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -543,12 +570,12 @@
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="others">Lain-lain<br>Others</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="others"
-                                                    name="ppe[others]" onchange="toggleNote('others')">
+                                                    name="ppe[others]"
+                                                    onchange="document.getElementById('note-others').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-others" class="note-input" style="display: none;">
-                                                <label for="note-others" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="ppe_notes[others]"
-                                                    placeholder="Enter keterangan untuk Others">
+                                                    id="note-others" placeholder="Enter keterangan untuk Others" disabled>
                                             </div>
                                         </td>
 
@@ -559,13 +586,13 @@
                                                     Benda<br>Falling Objects</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="fallingObjects" name="working_position[falling_objects]"
-                                                    onchange="toggleNote('fallingObjects')">
+                                                    onchange="document.getElementById('note-fallingObjects').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-fallingObjects" class="note-input" style="display: none;">
-                                                <label for="note-fallingObjects" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="working_position_notes[falling_objects]"
-                                                    placeholder="Enter keterangan untuk Falling Objects">
+                                                    id="note-fallingObjects"
+                                                    placeholder="Enter keterangan untuk Falling Objects" disabled>
                                             </div>
                                         </td>
 
@@ -575,13 +602,13 @@
                                                 <label class="form-label mb-0"
                                                     for="lighting">Penerangan<br>Lighting</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="lighting"
-                                                    name="environment[lighting]" onchange="toggleNote('lighting')">
+                                                    name="environment[lighting]"
+                                                    onchange="document.getElementById('note-lighting').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-lighting" class="note-input" style="display: none;">
-                                                <label for="note-lighting" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="environment_notes[lighting]"
-                                                    placeholder="Enter keterangan untuk Lighting">
+                                                    name="environment_notes[lighting]" id="note-lighting"
+                                                    placeholder="Enter keterangan untuk Lighting" disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -596,13 +623,12 @@
                                                     dll)<br>Others (Pressure, etc)</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="othersPressure" name="environment[others_pressure]"
-                                                    onchange="toggleNote('othersPressure')">
+                                                    onchange="document.getElementById('note-othersPressure').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-othersPressure" class="note-input" style="display: none;">
-                                                <label for="note-othersPressure" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="environment_notes[others_pressure]"
-                                                    placeholder="Enter keterangan untuk Others (Pressure, etc)">
+                                                    name="environment_notes[others_pressure]" id="note-othersPressure"
+                                                    placeholder="Enter keterangan untuk Others (Pressure, etc)" disabled>
                                             </div>
                                         </td>
 
@@ -611,13 +637,13 @@
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="noise">Kebisingan<br>Noise</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="noise"
-                                                    name="environment[noise]" onchange="toggleNote('noise')">
+                                                    name="environment[noise]"
+                                                    onchange="document.getElementById('note-noise').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-noise" class="note-input" style="display: none;">
-                                                <label for="note-noise" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="environment_notes[noise]"
-                                                    placeholder="Enter keterangan untuk Noise">
+                                                    name="environment_notes[noise]" id="note-noise"
+                                                    placeholder="Enter keterangan untuk Noise" disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -632,13 +658,12 @@
                                                     for="psychosocial">Psikososial<br>Psychosocial</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="psychosocial"
                                                     name="environment[psychosocial]"
-                                                    onchange="toggleNote('psychosocial')">
+                                                    onchange="document.getElementById('note-psychosocial').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-psychosocial" class="note-input" style="display: none;">
-                                                <label for="note-psychosocial" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="environment_notes[psychosocial]"
-                                                    placeholder="Enter keterangan untuk Psychosocial">
+                                                    name="environment_notes[psychosocial]" id="note-psychosocial"
+                                                    placeholder="Enter keterangan untuk Psychosocial" disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -653,13 +678,13 @@
                                                     Debu, dll)<br>Others (Chemical, Dust, etc)</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="othersChemical" name="environment[others_chemical]"
-                                                    onchange="toggleNote('othersChemical')">
+                                                    onchange="document.getElementById('note-othersChemical').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-othersChemical" class="note-input" style="display: none;">
-                                                <label for="note-othersChemical" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="environment_notes[others_chemical]"
-                                                    placeholder="Enter keterangan untuk Others (Chemical, Dust, etc)">
+                                                    name="environment_notes[others_chemical]" id="note-othersChemical"
+                                                    placeholder="Enter keterangan untuk Others (Chemical, Dust, etc)"
+                                                    disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -681,72 +706,66 @@
                                     <tr>
                                         <!-- Menggunakan Peralatan yang Tepat (Use the Right Tool) -->
                                         <td class="align-middle">
-                                            <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="rightTool">Menggunakan Peralatan yang
                                                     Tepat<br>Use the Right Tool</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="rightTool"
-                                                    name="tools[right_tool]" onchange="toggleNote('rightTool')">
+                                                    name="tools[right_tool]"
+                                                    onchange="document.getElementById('note-rightTool').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-rightTool" class="note-input" style="display: none;">
-                                                <label for="note-rightTool" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="tools_notes[right_tool]"
-                                                    placeholder="Enter keterangan untuk Right Tool">
+                                                    id="note-rightTool" placeholder="Enter keterangan untuk Right Tool"
+                                                    disabled>
                                             </div>
                                         </td>
 
                                         <!-- Apakah Standar Operasional Sudah Ada? (Is Standard Practice Established) -->
                                         <td class="align-middle">
-                                            <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="standardPracticeEstablished">Apakah
                                                     Standar Operasional Sudah Ada?<br>Is Standard Practice
                                                     Established</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="standardPracticeEstablished" name="procedures[standard_practice]"
-                                                    onchange="toggleNote('standardPracticeEstablished')">
+                                                    onchange="document.getElementById('note-standardPracticeEstablished').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-standardPracticeEstablished" class="note-input"
-                                                style="display: none;">
-                                                <label for="note-standardPracticeEstablished"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="procedures_notes[standard_practice]"
-                                                    placeholder="Enter keterangan untuk Standard Practice Established">
+                                                    id="note-standardPracticeEstablished"
+                                                    placeholder="Enter keterangan untuk Standard Practice Established"
+                                                    disabled>
                                             </div>
                                         </td>
 
                                         <!-- Kebersihan dan Kerapihan (Cleanliness and Orderliness) -->
                                         <td colspan="2">
                                             <div class="d-flex flex-column gap-3">
-                                                <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-between align-items-center mb-3">
                                                     <label class="form-label mb-0"
                                                         for="cleanlinessCheck">Kebersihan<br>Cleanliness</label>
                                                     <input type="checkbox" class="form-check-input ms-auto"
                                                         id="cleanlinessCheck" name="environment[cleanliness]"
-                                                        onchange="toggleNote('cleanlinessCheck')">
+                                                        onchange="document.getElementById('note-cleanlinessCheck').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-cleanlinessCheck" class="note-input"
-                                                    style="display: none;">
-                                                    <label for="note-cleanlinessCheck"
-                                                        class="form-label">Keterangan:</label>
+                                                <div>
                                                     <input type="text" class="form-control"
-                                                        name="environment_notes[cleanliness]"
-                                                        placeholder="Enter keterangan untuk Cleanliness">
+                                                        name="environment_notes[cleanliness]" id="note-cleanlinessCheck"
+                                                        placeholder="Enter keterangan untuk Cleanliness" disabled>
                                                 </div>
 
-                                                <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-between align-items-center mb-3">
                                                     <label class="form-label mb-0"
                                                         for="orderlinessCheck">Kerapihan<br>Orderliness</label>
                                                     <input type="checkbox" class="form-check-input ms-auto"
                                                         id="orderlinessCheck" name="environment[orderliness]"
-                                                        onchange="toggleNote('orderlinessCheck')">
+                                                        onchange="document.getElementById('note-orderlinessCheck').disabled = !this.checked;">
                                                 </div>
-                                                <div id="note-orderlinessCheck" class="note-input"
-                                                    style="display: none;">
-                                                    <label for="note-orderlinessCheck"
-                                                        class="form-label">Keterangan:</label>
+                                                <div>
                                                     <input type="text" class="form-control"
-                                                        name="environment_notes[orderliness]"
-                                                        placeholder="Enter keterangan untuk Orderliness">
+                                                        name="environment_notes[orderliness]" id="note-orderlinessCheck"
+                                                        placeholder="Enter keterangan untuk Orderliness" disabled>
                                                 </div>
                                             </div>
                                         </td>
@@ -760,13 +779,12 @@
                                                     benar dan sesuai <br>Used Correctly</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="usedCorrectly" name="tools[used_correctly]"
-                                                    onchange="toggleNote('usedCorrectly')">
+                                                    onchange="document.getElementById('note-usedCorrectly').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-usedCorrectly" class="note-input" style="display: none;">
-                                                <label for="note-usedCorrectly" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="tools_notes[used_correctly]"
-                                                    placeholder="Enter keterangan untuk Used Correctly">
+                                                    name="tools_notes[used_correctly]" id="note-usedCorrectly"
+                                                    placeholder="Enter keterangan untuk Used Correctly" disabled>
                                             </div>
                                         </td>
 
@@ -778,13 +796,12 @@
                                                     Practice Adequate for the Job</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="standardAdequate" name="procedures[standard_adequate]"
-                                                    onchange="toggleNote('standardAdequate')">
+                                                    onchange="document.getElementById('note-standardAdequate').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-standardAdequate" class="note-input" style="display: none;">
-                                                <label for="note-standardAdequate" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="procedures_notes[standard_adequate]"
-                                                    placeholder="Enter keterangan untuk Standard Adequate">
+                                                    name="procedures_notes[standard_adequate]" id="note-standardAdequate"
+                                                    placeholder="Enter keterangan untuk Standard Adequate" disabled>
                                             </div>
                                         </td>
 
@@ -796,15 +813,14 @@
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="hazardousMaterialHandling"
                                                     name="environment[hazardous_material_handling]"
-                                                    onchange="toggleNote('hazardousMaterialHandling')">
+                                                    onchange="document.getElementById('note-hazardousMaterialHandling').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-hazardousMaterialHandling" class="note-input"
-                                                style="display: none;">
-                                                <label for="note-hazardousMaterialHandling"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="environment_notes[hazardous_material_handling]"
-                                                    placeholder="Enter keterangan untuk Hazardous Material Handling">
+                                                    id="note-hazardousMaterialHandling"
+                                                    placeholder="Enter keterangan untuk Hazardous Material Handling"
+                                                    disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -818,13 +834,12 @@
                                                     Peralatan<br>Tools and Equipment Condition</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="toolsCondition" name="tools[tools_condition]"
-                                                    onchange="toggleNote('toolsCondition')">
+                                                    onchange="document.getElementById('note-toolsCondition').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-toolsCondition" class="note-input" style="display: none;">
-                                                <label for="note-toolsCondition" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="tools_notes[tools_condition]"
-                                                    placeholder="Enter keterangan untuk Tools Condition">
+                                                    name="tools_notes[tools_condition]" id="note-toolsCondition"
+                                                    placeholder="Enter keterangan untuk Tools Condition" disabled>
                                             </div>
                                         </td>
 
@@ -836,14 +851,14 @@
                                                     Maintained</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="standardMaintained" name="procedures[standard_maintained]"
-                                                    onchange="toggleNote('standardMaintained')">
+                                                    onchange="document.getElementById('note-standardMaintained').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-standardMaintained" class="note-input" style="display: none;">
-                                                <label for="note-standardMaintained"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="procedures_notes[standard_maintained]"
-                                                    placeholder="Enter keterangan untuk Standard Practice Maintained">
+                                                    id="note-standardMaintained"
+                                                    placeholder="Enter keterangan untuk Standard Practice Maintained"
+                                                    disabled>
                                             </div>
                                         </td>
 
@@ -854,14 +869,13 @@
                                                     Non B3<br>NON B3 Waste Handling</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="nonB3WasteHandling" name="environment[non_b3_waste_handling]"
-                                                    onchange="toggleNote('nonB3WasteHandling')">
+                                                    onchange="document.getElementById('note-nonB3WasteHandling').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-nonB3WasteHandling" class="note-input" style="display: none;">
-                                                <label for="note-nonB3WasteHandling"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="environment_notes[non_b3_waste_handling]"
-                                                    placeholder="Enter keterangan untuk NON B3 Waste Handling">
+                                                    id="note-nonB3WasteHandling"
+                                                    placeholder="Enter keterangan untuk NON B3 Waste Handling" disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -874,14 +888,13 @@
                                                     Perkakas<br>Tools Condition</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="toolsConditionCheck" name="tools[tools_condition_check]"
-                                                    onchange="toggleNote('toolsConditionCheck')">
+                                                    onchange="document.getElementById('note-toolsConditionCheck').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-toolsConditionCheck" class="note-input" style="display: none;">
-                                                <label for="note-toolsConditionCheck"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="tools_notes[tools_condition_check]"
-                                                    placeholder="Enter keterangan untuk Tools Condition Check">
+                                                    id="note-toolsConditionCheck"
+                                                    placeholder="Enter keterangan untuk Tools Condition Check" disabled>
                                             </div>
                                         </td>
 
@@ -892,12 +905,12 @@
                                                     for="othersEquipment">Lain-lain<br>Others</label>
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="othersEquipment" name="tools[others]"
-                                                    onchange="toggleNote('othersEquipment')">
+                                                    onchange="document.getElementById('note-othersEquipment').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-othersEquipment" class="note-input" style="display: none;">
-                                                <label for="note-othersEquipment" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="tools_notes[others]"
-                                                    placeholder="Enter keterangan untuk Others">
+                                                    id="note-othersEquipment" placeholder="Enter keterangan untuk Others"
+                                                    disabled>
                                             </div>
                                         </td>
 
@@ -909,15 +922,14 @@
                                                 <input type="checkbox" class="form-check-input ms-auto"
                                                     id="environmentAspectControl"
                                                     name="environment[environment_aspect_control]"
-                                                    onchange="toggleNote('environmentAspectControl')">
+                                                    onchange="document.getElementById('note-environmentAspectControl').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-environmentAspectControl" class="note-input"
-                                                style="display: none;">
-                                                <label for="note-environmentAspectControl"
-                                                    class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
                                                     name="environment_notes[environment_aspect_control]"
-                                                    placeholder="Enter keterangan untuk Environment Aspect Control">
+                                                    id="note-environmentAspectControl"
+                                                    placeholder="Enter keterangan untuk Environment Aspect Control"
+                                                    disabled>
                                             </div>
                                         </td>
                                     </tr>
@@ -928,12 +940,13 @@
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="others2">Lain-lain<br>Others</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="others2"
-                                                    name="tools[others2]" onchange="toggleNote('others2')">
+                                                    name="tools[others2]"
+                                                    onchange="document.getElementById('note-others2').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-others2" class="note-input" style="display: none;">
-                                                <label for="note-others2" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control" name="tools_notes[others2]"
-                                                    placeholder="Enter keterangan untuk Others">
+                                                    id="note-others2" placeholder="Enter keterangan untuk Others"
+                                                    disabled>
                                             </div>
                                         </td>
 
@@ -945,13 +958,13 @@
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <label class="form-label mb-0" for="others3">Lain-lain<br>Others</label>
                                                 <input type="checkbox" class="form-check-input ms-auto" id="others3"
-                                                    name="environment[others3]" onchange="toggleNote('others3')">
+                                                    name="environment[others3]"
+                                                    onchange="document.getElementById('note-others3').disabled = !this.checked;">
                                             </div>
-                                            <div id="note-others3" class="note-input" style="display: none;">
-                                                <label for="note-others3" class="form-label">Keterangan:</label>
+                                            <div>
                                                 <input type="text" class="form-control"
-                                                    name="environment_notes[others3]"
-                                                    placeholder="Enter keterangan untuk Others">
+                                                    name="environment_notes[others3]" id="note-others3"
+                                                    placeholder="Enter keterangan untuk Others" disabled>
                                             </div>
                                         </td>
                                     </tr>

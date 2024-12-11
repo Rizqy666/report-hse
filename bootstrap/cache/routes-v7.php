@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::GeKwYDl250o1iZHw',
+            '_route' => 'generated::PgLFGRyCqLzfXFs9',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::OiIFhSaoviOsbdKZ',
+            '_route' => 'generated::TzkykALhAeg1oDNI',
           ),
           1 => NULL,
           2 => 
@@ -159,7 +159,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0U7rLaLRQ81IPTDd',
+            '_route' => 'generated::Lq8HQQiRVq44fENK',
           ),
           1 => NULL,
           2 => 
@@ -214,7 +214,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::mRrlBLtGyVoNOqKz',
+            '_route' => 'generated::KeeMwJxMvFVJK3q1',
           ),
           1 => NULL,
           2 => 
@@ -305,7 +305,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::jbxNkgNhHPTepFGb',
+            '_route' => 'generated::NmCTPhNYB11VzC60',
           ),
           1 => NULL,
           2 => 
@@ -397,7 +397,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/password/reset/([^/]++)(*:31)|/hse_report/(?|([^/]++)(?|(*:64)|/edit(*:76)|(*:83))|([0-9]+)/approve(*:107)|([0-9]+)/reject(*:130)))/?$}sDu',
+      0 => '{^(?|/password/reset/([^/]++)(*:31)|/hse_report/([^/]++)(?|(*:61)|/(?|edit(*:76)|approve(*:90)|reject(*:103))|(*:112)))/?$}sDu',
     ),
     3 => 
     array (
@@ -424,7 +424,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      64 => 
+      61 => 
       array (
         0 => 
         array (
@@ -470,7 +470,51 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      83 => 
+      90 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'hse_report.approve',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      103 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'hse_report.reject',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      112 => 
       array (
         0 => 
         array (
@@ -511,51 +555,7 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-      ),
-      107 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'hse_report.approve',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      130 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'hse_report.reject',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-        1 => 
+        2 => 
         array (
           0 => NULL,
           1 => NULL,
@@ -717,7 +717,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::GeKwYDl250o1iZHw' => 
+    'generated::PgLFGRyCqLzfXFs9' => 
     array (
       'methods' => 
       array (
@@ -740,7 +740,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::GeKwYDl250o1iZHw',
+        'as' => 'generated::PgLFGRyCqLzfXFs9',
       ),
       'fallback' => false,
       'defaults' => 
@@ -756,7 +756,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::OiIFhSaoviOsbdKZ' => 
+    'generated::TzkykALhAeg1oDNI' => 
     array (
       'methods' => 
       array (
@@ -778,7 +778,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::OiIFhSaoviOsbdKZ',
+        'as' => 'generated::TzkykALhAeg1oDNI',
       ),
       'fallback' => false,
       'defaults' => 
@@ -831,7 +831,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0U7rLaLRQ81IPTDd' => 
+    'generated::Lq8HQQiRVq44fENK' => 
     array (
       'methods' => 
       array (
@@ -851,7 +851,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0U7rLaLRQ81IPTDd',
+        'as' => 'generated::Lq8HQQiRVq44fENK',
       ),
       'fallback' => false,
       'defaults' => 
@@ -940,7 +940,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::mRrlBLtGyVoNOqKz' => 
+    'generated::KeeMwJxMvFVJK3q1' => 
     array (
       'methods' => 
       array (
@@ -960,7 +960,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::mRrlBLtGyVoNOqKz',
+        'as' => 'generated::KeeMwJxMvFVJK3q1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1159,7 +1159,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::jbxNkgNhHPTepFGb' => 
+    'generated::NmCTPhNYB11VzC60' => 
     array (
       'methods' => 
       array (
@@ -1179,7 +1179,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::jbxNkgNhHPTepFGb',
+        'as' => 'generated::NmCTPhNYB11VzC60',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1511,8 +1511,8 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\HseChecklistController@update',
-        'controller' => 'App\\Http\\Controllers\\HseChecklistController@update',
+        'uses' => 'App\\Http\\Controllers\\HseChecklistController@approve',
+        'controller' => 'App\\Http\\Controllers\\HseChecklistController@approve',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -1526,7 +1526,6 @@ app('router')->setCompiledRoutes(
       ),
       'wheres' => 
       array (
-        'id' => '[0-9]+',
       ),
       'bindingFields' => 
       array (
@@ -1549,8 +1548,8 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\HseChecklistController@update',
-        'controller' => 'App\\Http\\Controllers\\HseChecklistController@update',
+        'uses' => 'App\\Http\\Controllers\\HseChecklistController@reject',
+        'controller' => 'App\\Http\\Controllers\\HseChecklistController@reject',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -1564,7 +1563,6 @@ app('router')->setCompiledRoutes(
       ),
       'wheres' => 
       array (
-        'id' => '[0-9]+',
       ),
       'bindingFields' => 
       array (
