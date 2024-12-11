@@ -30,7 +30,8 @@
                                     <th>Reporty By</th>
                                     <th>Tanggal</th>
                                     <th>Inst</th>
-                                    <th>Status</th>
+                                    <th>Status Kodindisi</th>
+                                    <th>Status Feedback</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -56,7 +57,15 @@
                                                 <span class="badge bg-success">Safe Condition</span>
                                             <?php endif; ?>
                                         </td>
-
+                                        <td>
+                                            <?php if($item->feedback === 'reject'): ?>
+                                                <span class="badge bg-danger">Reject</span>
+                                            <?php elseif($item->feedback === 'approve'): ?>
+                                                <span class="badge bg-success">Approve</span>
+                                            <?php else: ?>
+                                                <span class="badge bg-secondary">Not Accept</span>
+                                            <?php endif; ?>
+                                        </td>
 
 
                                         <td>
@@ -77,7 +86,8 @@
                                     <th>Reporty By</th>
                                     <th>Tanggal</th>
                                     <th>Inst</th>
-                                    <th>Status</th>
+                                    <th>Status Kodindisi</th>
+                                    <th>Status Feedback</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
