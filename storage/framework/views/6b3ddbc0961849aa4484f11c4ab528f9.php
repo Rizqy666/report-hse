@@ -75,9 +75,10 @@
                         </div>
                         <span>Jumlah Laporan:
                             <?php echo e($reports->isNotEmpty() ? $reports->count() : 'Tidak tersedia'); ?> data</span>
-                        <table id="example" class="table table-striped border-black" style="width:100%">
+                        <table id="example" class="table table-striped table-bordered shadow-sm" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Reporty By</th>
                                     <th>Tanggal</th>
                                     <th>Inst</th>
@@ -89,6 +90,7 @@
                             <tbody>
                                 <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                        <td><?php echo e($loop->iteration); ?></td>
                                         <td><?php echo e($item->reported_by); ?></td>
                                         <td><?php echo e(\Carbon\Carbon::parse($item->date)->format('d-M-Y')); ?></td>
                                         <td><?php echo e($item->inst_dept); ?></td>
@@ -116,7 +118,7 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <div>
+                                            <div class="d-flex justify-content-center w-full">
                                                 <a href="<?php echo e(route('hse_report.show', $item->id)); ?>"
                                                     class="btn btn-sm btn-primary">
                                                     <i class="fa-solid fa-eye"></i> Show
@@ -127,6 +129,8 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
+                        <?php echo e($reports->onEachSide(1)->links('pagination::bootstrap-5')); ?>
+
                     </div>
                 </div>
             </div>
