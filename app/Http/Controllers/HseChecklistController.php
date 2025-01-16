@@ -27,7 +27,7 @@ class HseChecklistController extends Controller
             }
         }
 
-        $reports = $query->paginate(10);
+        $reports = $query->paginate(10)->appends($request->all());
 
         $reporters = HseChecklist::select('reported_by')->distinct()->pluck('reported_by');
 
