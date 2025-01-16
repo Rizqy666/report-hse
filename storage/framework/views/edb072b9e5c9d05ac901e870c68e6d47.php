@@ -118,8 +118,8 @@
                                         <td style="width: 33%">DATE :<input type="date" name="date" id="date"
                                                 class="form-control" value="<?php echo e(old('date')); ?>"></td>
                                         <td style="width: 33%">Reported By :<input type="text" name="reported_by"
-                                                id="reported_by" class="form-control" value="<?php echo e(auth()->user()->name); ?>"
-                                                ></td>
+                                                id="reported_by" class="form-control" value="<?php echo e(auth()->user()->name); ?>">
+                                        </td>
                                         <td style="width: 33%">Inst / Dept :<input type="text" name="inst_dept"
                                                 id="inst_dept" class="form-control"value="<?php echo e(old('inst_dept')); ?>"></td>
                                     </tr>

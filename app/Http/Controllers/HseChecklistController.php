@@ -9,20 +9,29 @@ class HseChecklistController extends Controller
 {
     public function index(Request $request)
     {
-        // Menyiapkan query builder untuk tabel HSE
         $query = HseChecklist::query();
 
-        // Memeriksa apakah ada parameter 'start_date' dan 'end_date' yang dikirimkan dalam request
-        if ($request->has('start_date') && $request->has('end_date')) {
-            // Filter berdasarkan range tanggal
+        if ($request->filled('start_date') && $request->filled('end_date')) {
             $query->whereBetween('date', [$request->start_date, $request->end_date]);
         }
 
-        // Ambil data yang sudah difilter
+        if ($request->filled('reported_by')) {
+            $query->where('reported_by', $request->reported_by);
+        }
+
+        if ($request->filled('status')) {
+            if ($request->status === 'not_accept') {
+                $query->whereNull('feedback')->orWhere('feedback', '');
+            } else {
+                $query->where('feedback', $request->status);
+            }
+        }
+
         $reports = $query->get();
 
-        // Kirim data ke view
-        return view('report.data', compact('reports'));
+        $reporters = HseChecklist::select('reported_by')->distinct()->pluck('reported_by');
+
+        return view('report.data', compact('reports', 'reporters'));
     }
 
     public function store(Request $request)
@@ -52,7 +61,6 @@ class HseChecklistController extends Controller
             'environment_notes' => 'nullable|array',
         ]);
 
-        // Menyimpan data checklist
         HseChecklist::create([
             'reported_by' => $request->reported_by,
             'date' => $request->date,
@@ -98,10 +106,8 @@ class HseChecklistController extends Controller
 
         $report = HseChecklist::findOrFail($id);
 
-        // Tentukan aksi (approve/reject) berdasarkan data
         $action = $request->route()->getName() === 'hse_report.approve' ? 'approve' : 'reject';
 
-        // Update feedback dan alasan
         $report->update([
             'feedback' => $action,
             'reason' => $validated['reason'],
@@ -130,7 +136,6 @@ class HseChecklistController extends Controller
 
         $report = HseChecklist::findOrFail($id);
 
-        // Update feedback dan alasan
         $report->update([
             'feedback' => $action,
             'reason' => $validated['reason'],
